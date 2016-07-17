@@ -1,0 +1,64 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/mvc
+		http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context-3.0.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd" default-autowire="byName">
+	
+	<!-- scan controller -->
+	<context:component-scan base-package="com.campus.coupon"/>
+
+	<!-- exclude resource -->
+    <!--<mvc:resources mapping="/static/**" location="/static/" /> -->
+    <!--<mvc:resources mapping="/images/**" location="file:/home/mdbiz/pic/" /> -->
+	
+	<!--<mvc:annotation-driven validator="validator"/>-->
+
+	<!-- 支持上传文件 -->  
+	<!--<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>-->
+	
+	<!-- jsp view resolver -->
+	<!--<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
+		<!--<property name="prefix" value="/web/" />-->
+		<!--<property name="suffix" value=".jsp" />-->
+	<!--</bean>-->
+
+	<!-- json respose handler -->
+	<!--<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">      -->
+        <!--<property name="messageConverters">      -->
+            <!--<list >      -->
+                <!--<ref bean="mappingJacksonHttpMessageConverter" />      -->
+            <!--</list>      -->
+        <!--</property>		-->
+    <!--</bean>  -->
+    <!--<bean id="mappingJacksonHttpMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">-->
+	    <!--<property name="supportedMediaTypes">    -->
+	        <!--<list>    -->
+	            <!--<value>application/json;charset=UTF-8</value>    -->
+	       <!--</list>    -->
+	    <!--</property> -->
+	<!--</bean>-->
+	
+	<!--<mvc:interceptors>-->
+		<!-- 记录APP请求日志 -->
+		<!--<mvc:interceptor>-->
+			<!--<mvc:mapping path="/app/**"/>-->
+			<!--<bean class="cn.miaodai.interceptor.AppFsLogInterceptor"></bean>-->
+		<!--</mvc:interceptor> -->
+	<!--</mvc:interceptors>-->
+	
+	<!--<aop:config>-->
+    	<!--<aop:aspect ref="baffleLocalService">-->
+    		<!--<aop:pointcut id="paction1" expression="execution(* cn.miaodai.action..*Action.*(..))"/>-->
+    		<!--<aop:around pointcut-ref="paction1" method="request"/>-->
+    	<!--</aop:aspect>-->
+    <!--</aop:config>-->
+</beans>						
